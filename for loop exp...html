@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body{
+        color: blue;
+        font-size: 80px;
+    }
+    </style>
+</head>
+<body>
+    <div id="display"></div>
+    
+
+    <script>
+         
+        // for (let i = 1; i <= 10; i++) {
+
+        //     for (let h = 1; h <=i; h++) {
+        //         document.write("*");
+        //         console.log("*");
+
+        //     }
+        //     document.write("<br>")
+        // }
+
+        let i,j,k,l, star = "";
+
+
+        for (i=1; i<=5; i++){
+
+            for(k=1; k<=5-i; k++){
+                // document.write("&nbsp;&nbsp;");
+                star +="&nbsp;&nbsp;";
+            }
+            for (j=1; j<=i; j++){
+                // document.write("*");
+                star +="*";
+            }
+            for(l=2; l<=i; l++){
+                // document.write("*");
+                star+="*";
+            }
+            // document.write("<br>");
+            star+="<br>";
+        }
+        document.getElementById("display").innerHTML=star;
+    </script>
+</body>
+</html>
