@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            height: 800px;
+            background: #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .swiper {
+            width: 80%;
+            height: 100%;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+        }
+        .swiper .swiper-button-prev, .swiper .swiper-button-next{
+            color: #fff;
+        }
+        .swiper .swiper-pagination-bullet-active{
+            background: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide"><img src="./img/img 1.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="./img/img 2.jpg" alt=""></div>
+                <div class="swiper-slide"><img src="./img/img 4.jpeg" alt=""></div>
+                <div class="swiper-slide"><img src="./img/img (4).jpg" alt=""></div>
+                <div class="swiper-slide"><img src="./img/img 5.jpg" alt=""></div>
+                <!-- <div class="swiper-slide"><img src="./img/tom and jerry 6.png" alt=""></div> -->
+            </div>
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <script>
+        const swiper = new Swiper('.swiper', {
+            autoplay: {
+               delay:2000,
+               disableOnInteraction : false,
+            },
+
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
+</body>
+
+</html>
