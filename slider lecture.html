@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        section{
+            width: 1000px;
+            height: 500px;
+            margin: 0 auto;
+        }
+        img {
+            width: 100%;
+            /* display: none; */
+        }
+    </style>
+</head>
+
+<body>
+
+    <section>
+        <img src="./img/maunt 1.jpeg" class="slid-img" alt="">
+        <img src="./img/maunt 2.jpeg" class="slid-img" alt="">
+        <img src="./img/maunt 3.jpeg" class="slid-img" alt="">
+        <img src="./img/maunt 4.jpeg" class="slid-img" alt="">
+        <img src="./img/maunt 5.jpeg" class="slid-img" alt="">
+    </section>
+
+
+    <script>
+
+let sliderdata = document.getElementsByClassName("slid-img")
+        console.log(sliderdata);
+        let count = 0
+
+        function slider() {
+             for (let index = 0; index < sliderdata.length; index++) {
+                // const element = array[index];
+               console.log( sliderdata[index]);
+               sliderdata[index].style.display = "none"
+                
+             }
+            //  if(count)
+            // console.log(count);
+            if (count >= sliderdata.length) {
+                count = 0
+                
+            }
+            // console.log(count);
+            sliderdata[count].style.display = "block"
+            count++
+
+            setTimeout(slider , 2000)
+            
+        }
+        slider()
+
+    </script>
+</body>
+
+</html>
