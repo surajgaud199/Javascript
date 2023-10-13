@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Libre+Baskerville:wght@700&family=Montserrat:wght@200&family=Oswald&family=Poppins:wght@200&family=Roboto:wght@100&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Libre Baskerville', serif;
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            background-image: linear-gradient(rgba(0, 0, 50, 0.8), rgba(0, 0, 50, 0.8)), url(./img/background\ photo.jpeg);
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+        h1{
+            color: wheat;
+        }
+        .form-box {
+            width: 100%;
+            max-width: 450px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-image: url(./img/download\ {12}.jpeg);
+            padding: 50px 60px 70px;
+            text-align: center;
+            /* background-repeat: no-repeat; */
+        }
+
+        .input-field {
+            background: honeydew;
+            margin: 15px 0;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            max-height: 65px;
+            transition: max-height 0.5s;
+            overflow: hidden;
+        }
+
+        input {
+            width: 100%;
+            background: transparent;
+            border: 0;
+            outline: 0;
+            padding: 18px 15px;
+        }
+
+        .input-field i {
+            margin-left: 15px;
+            color: #999;
+        }
+
+        .btn-field {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn-field button {
+            flex-basis: 48%;
+            background: #3c00a0;
+            color: floralwhite;
+            height: 40px;
+            border-radius: 20px;
+            border: 0;
+            outline: 0;
+            cursor: pointer;
+            transition: background 1s;
+            margin: 0 auto;
+        }
+
+        .input-group {
+            height: 320px;
+        }
+        p{
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-box">
+            <h1 id="tatle">Login-Page</h1>
+            <form action="#" onclick="sub()">
+                <div class="input-group">
+                    <div class="input-field">
+                        <label for="your-name">your-name</label>
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" id="your-name" value="" required>
+                        <p id="p1"></p>
+                    </div>
+                    <div class="input-field">
+                        <label for="your-email">email</label>
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" id="your-email" required>
+                        <p id="p2"></p>
+                    </div>
+                    <div class="input-field">
+                        <label for="your-password">password</label>
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="your-password" required>
+                        <p id="p3"></p>
+                    </div>
+                    <div class="input-field">
+                        <label for="confirm-password">confirm-password</label>
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" id="confirm-password" required>
+                        <p id="p4"></p>
+                    </div>
+                    <!-- <div>
+                        <label for="data1" class="data">
+                            Are Your Sure<input type="checkbox" onclick="getclick()" role="checkbox" id="data1">
+                        </label>
+                    </div> -->
+                    <div class="btn-field">
+                        <button>register</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+        let yname = document.getElementById('your-name')
+        let yemail = document.getElementById('your-email')
+        let ypassword = document.getElementById('your-password')
+        let yconfirmpassword = document.getElementById('confirm-password')
+        var para1 = document.getElementById('p1')
+        let para2 = document.getElementById('p2')
+        let para3 = document.getElementById('p3')
+        let para4 = document.getElementById('p4')
+        let para5 = document.getElementById('p5')
+
+
+        function sub() {
+            var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+
+            if (yemail.value.length < 6) {
+                para2.innerHTML = 'value must be more than 6 letters'
+                // para2.style.color = "red"
+                event.preventDefault()
+            }
+            else if (yemail.value != '') {
+                if (yemail.value.match(validRegex)) {
+                    para2.innerHTML = 'valid email address'
+                    event.preventDefault()
+                }
+                else {
+                    para2.innerHTML = 'not a valid email address'
+                    event.preventDefault()
+                }
+            }
+            else {
+                para2.innerHTML = 'ok'
+            }
+            if (ypassword.value.length < 8) {
+                para3.innerHTML = 'value must be more than 8 letter'
+                event.preventDefault()
+            }
+            else if (ypassword.value != '') {
+                if (ypassword.value.search(/[0-9]/) == -1) {
+                    para3.innerHTML = 'include atleast 1 numeric value'
+                    event.preventDefault()
+
+                }
+
+                else if (ypassword.value.search(/[A-Z]/) == -1) {
+                    para3.innerHTML = 'include atleast 1 uppercase character'
+                    event.preventDefault()
+
+
+                }
+                else if (ypassword.value.search(/[a-z]/) == -1) {
+                    para3.innerHTML = 'include atleast 1 lowercase character'
+                    event.preventDefault()
+                }
+                else if (ypassword.value.search(/[!\@\#\$\%\^\&\*]/) == -1) {
+                    para3.innerHTML = 'include atleast 1 special symbol from this (!,@,#,$,%,^,&,*)'
+                    event.preventDefault()
+                }
+                else {
+                    para3.innerHTML = 'valid password'
+                }
+
+            }
+            else {
+                para3 = innerHTML = ''
+            }
+            if (yconfirmpassword.value != ypassword.value) {
+                para4.innerHTML = 'password not matches'
+                event.preventDefault()
+
+            }
+            else {
+                para4.innerHTML = 'password are match';
+            }
+            // if (data.checked) {
+            //     console.log("checked");
+            // }
+
+            // return false
+        }
+        // function getclick() {
+        //     if (data1.checked == true) {
+        //         console.log("checked");
+        //         data.style.backgroundColor = "red"
+        //     }
+        // }
+    </script>
+</body>
+
+</html>
