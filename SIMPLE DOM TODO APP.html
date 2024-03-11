@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM App</title>
+    <style>
+        body{
+            background-color: tomato;
+        }
+        h1{
+            color: black;
+        }
+        .btn{
+            color: brown;
+            padding: 10px;
+            text-shadow: black;
+            border-radius: 50%;
+        }
+        .btn:hover{
+            background-color: aquamarine;
+
+        }
+        input{
+            padding: 5px;
+            background-image: url(./img/1234567890.jpeg);
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <h1>SIMPLE DOM TODO APP</h1>
+    <hr/>
+    
+    <div>
+        <input type="text"/ id="inputful">
+        <button class="btn">Click me</button>
+        <div class="todoListsElem">
+            <!-- <p id="todofirst"></p> -->
+        </div>
+    </div>
+    </center>
+
+
+
+    <script>
+       
+
+        let inputElem = document.getElementById("inputful");
+        let ClickBtn = document.querySelector(".btn");
+        // let todofirst = document.getElementById("todofirst");
+        let todonew = document.querySelector(".todoListsElem");
+
+        const addTodo = () => {
+            console.log(inputElem.value);
+            // todofirst.textContent = inputElem.value;
+
+            let pElem = document.createElement("p");
+            pElem.textContent = inputElem.value;
+            console.log(pElem);
+            todonew.append(pElem);
+
+            inputElem.value = " ";
+        }
+
+        ClickBtn.addEventListener('click', () =>{
+            addTodo();
+        });
+
+        todoElem.addEventListener("click", (event) => {
+            console.log(event.target);
+            let currentElem = event.target;
+            currentElem.remove();
+        });
+    </script>
+</body>
+</html>
